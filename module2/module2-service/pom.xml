@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.mavendemo1</groupId>
+        <artifactId>maven-demo1</artifactId>
+        <version>${revision}</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>module2-service</artifactId>
+    <packaging>pom</packaging>
+    <version>${revision}</version>
+    <name>maven-demo1-module2-service</name>
+
+   <modules>
+       <module>/module2-product-service</module>
+       <module>/module2-order-service</module>
+   </modules>
+
+</project>

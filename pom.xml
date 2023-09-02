@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mavendemo1</groupId>
+  <artifactId>maven-demo1</artifactId>
+  <packaging>pom</packaging>
+  <version>${revision}</version>
+  <name>maven-demo1</name>
+
+  <modules>
+    <module>module1/module1-api/module1-user-api</module>
+    <module>module1/module1-service/module1-user-service</module>
+
+    <module>module2/module2-api</module>
+    <module>module2/module2-service</module>
+  </modules>
+
+  <properties>
+          <revision>1.2-SNAPSHOT</revision>
+          <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+          <jackson-annotations.version>2.13.5</jackson-annotations.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>${jackson-annotations.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>${project.basedir}/src/main/resources</directory>
+        <includes>
+          <include>*.properties</include>
+        </includes>
+        <excludes>
+          <exclude>*.txt</exclude>
+        </excludes>
+      </resource>
+    </resources>
+      <plugins>
+<!--        <plugin>-->
+<!--          <groupId>org.codehaus.mojo</groupId>-->
+<!--          <artifactId>flatten-maven-plugin</artifactId>-->
+<!--          <version>1.1.0</version>-->
+<!--          <configuration>-->
+<!--            <updatePomFile>true</updatePomFile>-->
+<!--            <flattenMode>resolveCiFriendliesOnly</flattenMode>-->
+<!--          </configuration>-->
+<!--          <executions>-->
+<!--            <execution>-->
+<!--              <id>flatten</id>-->
+<!--              <phase>process-resources</phase>-->
+<!--              <goals>-->
+<!--                <goal>flatten</goal>-->
+<!--              </goals>-->
+<!--            </execution>-->
+<!--            <execution>-->
+<!--              <id>flatten.clean</id>-->
+<!--              <phase>clean</phase>-->
+<!--              <goals>-->
+<!--                <goal>clean</goal>-->
+<!--              </goals>-->
+<!--            </execution>-->
+<!--          </executions>-->
+<!--        </plugin>-->
+      </plugins>
+  </build>
+</project>

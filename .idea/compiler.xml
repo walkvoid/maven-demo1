@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="module1-user-api" />
+        <module name="module2-order-api" />
+        <module name="module1-user-service" />
+        <module name="module2-order-service" />
+        <module name="module2-product-api" />
+        <module name="module2-product-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="maven-demo1-module1-user-api (1)" target="1.5" />
+      <module name="maven-demo1-module1-user-api (2)" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
