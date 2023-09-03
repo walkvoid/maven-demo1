@@ -12,6 +12,9 @@ import java.io.Serializable;
  */
 public class UserQueryReq implements Serializable {
 
+    /**
+     * 名称
+     */
     @JsonProperty("_name")
     private String name;
 }
