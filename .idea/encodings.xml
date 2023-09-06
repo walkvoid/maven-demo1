@@ -17,6 +17,8 @@
     <file url="file://$PROJECT_DIR$/module2/module2-service/module2-product-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/module2/module2-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/module2/module2-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module3/conflictcheck-maven-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module3/conflictcheck-maven-plugin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

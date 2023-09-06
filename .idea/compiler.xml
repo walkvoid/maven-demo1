@@ -9,6 +9,7 @@
         <module name="module1-user-api" />
         <module name="module2-order-api" />
         <module name="module1-user-service" />
+        <module name="conflictcheck-maven-plugin" />
         <module name="module2-order-service" />
         <module name="module2-product-api" />
         <module name="module2-product-service" />
