@@ -62,6 +62,10 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <authorName>walkvoid</authorName>
+                    <projectBasedir>${project.basedir}</projectBasedir>
+                </configuration>
             </plugin>
         </plugins>
     </build>
