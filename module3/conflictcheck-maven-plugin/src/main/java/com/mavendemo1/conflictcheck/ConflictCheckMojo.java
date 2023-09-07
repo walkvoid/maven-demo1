@@ -10,6 +10,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -37,24 +38,33 @@ public class ConflictCheckMojo extends AbstractMojo {
         getLog().info("===============> authorName:"+authorName+"============");
         getLog().info("===============> projectBasedir:"+projectBasedir+"============");
         List<Dependency> dependencies = project.getDependencies();
-        for (Dependency dependency : dependencies) {
-            getLog().info("===============> dependency ArtifactId:"+dependency.getArtifactId()+"============");
-            getLog().info("===============> dependency SystemPath:"+dependency.getSystemPath()+"============");
+        ProjectBuildingRequest projectBuildingRequest = project.getProjectBuildingRequest();
+
+//        for (Dependency dependency : dependencies) {
+//
+//            getLog().info("===============> dependency ArtifactId:"+dependency.getArtifactId()+"============");
+//            getLog().info("===============> dependency SystemPath:"+dependency.getSystemPath()+"============");
 //            if (dependency.getArtifactId().equals("module2-product-api")) {
 //                String systemPath = dependency.getSystemPath();
 //                getLog().info("===============> module2-product-api pom path:"+systemPath+"============");
 //            }
-        }
+//        }
 
-        String pomFilePath = "D:\\developer\\apache-maven-3.5.4\\mavenRepository\\com\\mavendemo1\\module2-product-api\\2.3-SNAPSHOT\\module2-product-api-2.3-SNAPSHOT.pom";
-        try {
-            MavenProject build = new DefaultMavenProjectBuilder().build(new File(pomFilePath), new DefaultProjectBuilderConfiguration());
-            getLog().info("===============> module2-product-api:"+build.getArtifactId()+"============");
-            getLog().info("===============>module2-product-api:"+build.getGroupId()+"============");
-        } catch (ProjectBuildingException e) {
-            getLog().error("===============>module2-product-api error:"+e.getStackTrace()+"============");
-            //throw new RuntimeException(e);
-        }
+//        String pomFilePath = "D:\\developer\\apache-maven-3.5.4\\mavenRepository\\com\\mavendemo1\\module2-product-api\\2.3-SNAPSHOT\\module2-product-api-2.3-SNAPSHOT.pom";
+//        try {
+//            ProjectBuildingResult build = new DefaultProjectBuilder().build(new File(pomFilePath), project.getProjectBuildingRequest());
+//        } catch (ProjectBuildingException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        //        try {
+//            ProjectBuildingResult build = new DefaultProjectBuilder().build(new File(pomFilePath), project.getProjectBuildingRequest());
+//            getLog().info("===============> module2-product-api:"+build.getProject().getArtifactId()+"============");
+//            getLog().info("===============>module2-product-api:"+build.getProject().getGroupId()+"============");
+//        } catch (ProjectBuildingException e) {
+//            getLog().error("===============>module2-product-api error:"+e.getStackTrace()+"============");
+//            //throw new RuntimeException(e);
+//        }
 
     }
 }
