@@ -1,5 +1,6 @@
 package com.mavendemo1.module2.product.service;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.mavendemo1.module2.product.api.ProductAddReq;
 
 /**
@@ -9,6 +10,9 @@ import com.mavendemo1.module2.product.api.ProductAddReq;
  * @desc
  */
 public class ProductService {
+
+    @JsonProperty("_name")
+    private String name;
 
     public boolean addProduct(ProductAddReq addReq) {
         return true;

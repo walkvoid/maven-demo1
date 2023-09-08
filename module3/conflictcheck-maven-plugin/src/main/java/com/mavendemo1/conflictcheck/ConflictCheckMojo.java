@@ -1,13 +1,21 @@
 package com.mavendemo1.conflictcheck;
 
+import org.apache.maven.artifact.Artifact;
+import org.apache.maven.artifact.resolver.filter.ArtifactFilter;
+import org.apache.maven.artifact.resolver.filter.ScopeArtifactFilter;
+import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.*;
+import org.apache.maven.shared.dependency.graph.DependencyGraphBuilder;
+import org.apache.maven.shared.dependency.graph.DependencyGraphBuilderException;
+import org.apache.maven.shared.dependency.graph.DependencyNode;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +26,8 @@ import java.util.List;
  * @version v1.0.0
  * @date 2023/9/6
  * @desc 依赖冲突检查插件
- *   mvnDebug com.mavendemo1:conflictcheck-maven-plugin:2.3-SNAPSHOT:conflict-check
+ *  cd .\module2\module2-service\module2-product-service\
+ *  mvnDebug com.mavendemo1:conflictcheck-maven-plugin:2.3-SNAPSHOT:conflict-check
  */
 
 @Mojo(name = "conflict-check", defaultPhase = LifecyclePhase.COMPILE)
@@ -33,6 +42,15 @@ public class ConflictCheckMojo extends AbstractMojo {
     @Parameter(defaultValue = "${project}", required = true, readonly = true)
     MavenProject project;
 
+    @Component(hint = "default")
+    private DependencyGraphBuilder dependencyGraphBuilder;
+
+    @Parameter(defaultValue = "${session}", readonly = true, required = true)
+    private MavenSession session;
+
+    @Parameter(defaultValue = "${reactorProjects}", required = true, readonly = true)
+    protected List<MavenProject> reactorProjects;
+
     public void execute() throws MojoExecutionException, MojoFailureException {
         getLog().info("===============> start depends conflict check ============");
         getLog().info("===============> authorName:"+authorName+"============");
@@ -40,7 +58,19 @@ public class ConflictCheckMojo extends AbstractMojo {
         List<Dependency> dependencies = project.getDependencies();
         ProjectBuildingRequest projectBuildingRequest = project.getProjectBuildingRequest();
 
-//        for (Dependency dependency : dependencies) {
+        ArtifactFilter artifactFilter = new ScopeArtifactFilter(Artifact.SCOPE_TEST);
+        ProjectBuildingRequest buildingRequest =
+                new DefaultProjectBuildingRequest(session.getProjectBuildingRequest());
+        buildingRequest.setProject(project);
+        DependencyNode dependencyNode = null;
+        try {
+            dependencyNode = dependencyGraphBuilder.buildDependencyGraph(buildingRequest, artifactFilter);
+        } catch (DependencyGraphBuilderException e) {
+            throw new RuntimeException(e);
+        }
+        getLog().info("===============> dependencyNode ArtifactId:"+dependencyNode.getArtifact().getArtifactId()+"============");
+
+//       reactorProjects = {ArrayList@4612}  size = 10 for (Dependency dependency : dependencies) {
 //
 //            getLog().info("===============> dependency ArtifactId:"+dependency.getArtifactId()+"============");
 //            getLog().info("===============> dependency SystemPath:"+dependency.getSystemPath()+"============");
