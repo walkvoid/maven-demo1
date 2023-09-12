@@ -28,6 +28,9 @@ import java.util.List;
  * @desc 依赖冲突检查插件
  *  cd .\module2\module2-service\module2-product-service\
  *  mvnDebug com.mavendemo1:conflictcheck-maven-plugin:2.3-SNAPSHOT:conflict-check
+ *                                     |--5.3.9========>
+ *  org.springframework:spring-core => |
+ *                                     |--5.4.9(used)==>
  */
 
 @Mojo(name = "conflict-check", defaultPhase = LifecyclePhase.COMPILE)
