@@ -83,12 +83,14 @@ public class ConflictCheckMojo extends AbstractMojo {
 //            }
 //        }
 
-//        String pomFilePath = "D:\\developer\\apache-maven-3.5.4\\mavenRepository\\com\\mavendemo1\\module2-product-api\\2.3-SNAPSHOT\\module2-product-api-2.3-SNAPSHOT.pom";
-//        try {
-//            ProjectBuildingResult build = new DefaultProjectBuilder().build(new File(pomFilePath), project.getProjectBuildingRequest());
-//        } catch (ProjectBuildingException e) {
-//            throw new RuntimeException(e);
-//        }
+        String pomFilePath = "D:\\developer\\apache-maven-3.5.4\\mavenRepository\\com\\mavendemo1\\module2-product-api\\2.3-SNAPSHOT\\module2-product-api-2.3-SNAPSHOT.pom";
+        try {
+            ProjectBuildingResult build = new DefaultProjectBuilder().build(new File(pomFilePath), buildingRequest);
+            getLog().info("===============>build project:"+ build.getProjectId()+"============");
+            //success!!!===============>build project:com.mavendemo1:module2-product-service:2.3-SNAPSHOT============
+        } catch (ProjectBuildingException e) {
+            throw new RuntimeException(e);
+        }
 
         //        try {
 //            ProjectBuildingResult build = new DefaultProjectBuilder().build(new File(pomFilePath), project.getProjectBuildingRequest());
