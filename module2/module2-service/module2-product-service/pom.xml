@@ -15,20 +15,33 @@
     <name>maven-demo1-module2-product-service</name>
 
     <dependencies>
-        <dependency>
-            <groupId>com.mavendemo1</groupId>
-            <artifactId>module2-product-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
 <!--        <dependency>-->
-<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--            <artifactId>jackson-annotations</artifactId>-->
+<!--            <groupId>com.mavendemo1</groupId>-->
+<!--            <artifactId>module2-order-api</artifactId>-->
+<!--            <version>${project.version}</version>-->
 <!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.mavendemo1</groupId>-->
+<!--            <artifactId>module2-product-api</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>2.15.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.13.5</version>
+        </dependency>
+        <!--
+            1.统一pom.xml声明不同版本的jar，最后声明的优先
+            2。相同路径长度的，取最开始加载的那个jar包，但是声明两个pom.xml都使用了同一个<dependencyManagement>来管理，则以管理的为准
+            3。路径长度不同的取路径最短的
+
+        -->
     </dependencies>
 
     <build>

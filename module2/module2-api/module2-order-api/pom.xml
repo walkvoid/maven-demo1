@@ -14,5 +14,13 @@
     <version>${revision}</version>
     <name>maven-demo1-module2-order-api</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.13.5</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
