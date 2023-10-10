@@ -11,7 +11,15 @@
     <artifactId>module1-user-service</artifactId>
     <packaging>jar</packaging>
     <version>${revision}</version>
-    <name>maven-demo1-module1-user-service</name>
+    <name>module1-user-service</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.mavendemo1</groupId>
+            <artifactId>module1-user-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

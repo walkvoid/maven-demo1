@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="module1-user-api" />
+        <module name="demo1-maven-plugin" />
         <module name="module2-order-api" />
         <module name="module1-user-service" />
         <module name="conflictcheck-maven-plugin" />

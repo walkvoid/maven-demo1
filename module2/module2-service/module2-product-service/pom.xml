@@ -4,9 +4,9 @@
 
     <parent>
         <groupId>com.mavendemo1</groupId>
-        <artifactId>maven-demo1</artifactId>
+        <artifactId>module2-service</artifactId>
         <version>${revision}</version>
-        <relativePath>../../../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>module2-product-service</artifactId>
@@ -25,16 +25,9 @@
 <!--            <artifactId>module2-product-api</artifactId>-->
 <!--            <version>${project.version}</version>-->
 <!--        </dependency>-->
-
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.15.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.13.5</version>
         </dependency>
         <!--
             1.统一pom.xml声明不同版本的jar，最后声明的优先
@@ -43,6 +36,24 @@
 
         -->
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <data-ids>aaa,bbb</data-ids>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>qa</id>
+            <properties>
+                <data-ids>ccc,ddd</data-ids>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>

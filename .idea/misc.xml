@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
@@ -8,6 +9,7 @@
         <option value="$PROJECT_DIR$/module2/module2-service/pom.xml" />
         <option value="$PROJECT_DIR$/module2/module2-api/pom.xml" />
         <option value="$PROJECT_DIR$/module3/conflictcheck-maven-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/module3/demo1-maven-plugin/pom.xml" />
       </list>
     </option>
   </component>
