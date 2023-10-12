@@ -14,4 +14,8 @@ public class ProductService {
     @JsonProperty("_name")
     private String name;
 
+    public void fourParamsMethod(String p1, String p2, String p3, Integer p4) {
+        p3 = p1 +p2;
+    }
+
 }
